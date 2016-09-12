@@ -1,5 +1,8 @@
-# -*- coding: utf8 -*-
+# -*- coding: utf-8 -*-
 import nltk
+import sys
+reload(sys)
+sys.setdefaultencoding('utf8')
 
 # setting  own custom sinhala words to not to check.
 # the words which doesnt have any negative or positive meaning.
@@ -80,7 +83,7 @@ training_set = nltk.classify.apply_features(feature_extractor, sentences)
 # Train classifier on the training set just created.
 # Based on NaiveBayes
 classifier = nltk.NaiveBayesClassifier.train(training_set)
-
+# print classifier.show_most_informative_features(10)
 while True:
     input = raw_input("   Enter any sentence or 'exit' to quit   : ")
     if input == 'exit':
